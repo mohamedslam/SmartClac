@@ -4,21 +4,19 @@ using System.Text;
 
 namespace SmartClac.Class
 {
-   public class Claculation
+    public class Claculation
     {
-      static  string _UserFormula = "";
-
-       
-      
 
         private static string[] _operatorsOfOperation = { "-", "+", "/", "*", "^" };
-        private static Func<double, double, double>[] MyAllowanceOperation = {
-        (a1, a2) => a1 - a2,
-        (a1, a2) => a1 + a2,
-        (a1, a2) => a1 / a2,
-        (a1, a2) => a1 * a2,
-        (a1, a2) => Math.Pow(a1, a2)
-    };
+
+        private static Func<double, double, double>[] MyAllowanceOperation =
+        {
+            (a1, a2) => a1 - a2,
+            (a1, a2) => a1 + a2,
+            (a1, a2) => a1 / a2,
+            (a1, a2) => a1 * a2,
+            (a1, a2) => Math.Pow(a1, a2)
+        };
 
         public static double Claculate(string expression)
         {
@@ -131,7 +129,6 @@ namespace SmartClac.Class
             }
             return tokens;
         }
-
 
     }
 }
