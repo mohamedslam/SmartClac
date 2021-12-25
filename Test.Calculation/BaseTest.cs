@@ -14,7 +14,7 @@ namespace SmartClac.Test
       protected readonly ICalculation _Icalculation;
         public BaseTest(ClsClaculation _calculation)
         {
-            _Icalculation = _calculation);
+            _Icalculation = _calculation;
         }
     }
 }
