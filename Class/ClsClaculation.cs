@@ -35,7 +35,7 @@ namespace SmartClac.Class
                     throw new ArgumentException("Correct the position of the brackets with the equation");
 
                 //check is that  operator  or not ?
-                if (Array.IndexOf(_MathOperators, token) >= 0)
+                if (GetIndex(_MathOperators, token) >= 0)
                 {
                     while (operator_Stack.Count > 0 && GetIndex(_MathOperators, token) < GetIndex(_MathOperators, operator_Stack.Peek()))
                     {
@@ -53,7 +53,11 @@ namespace SmartClac.Class
 
                 tokenIndex ++;
             }
-
+           
+            return CalcTriminal(operand_Stack, operator_Stack);
+        }
+        private double CalcTriminal(Stack<double> operand_Stack, Stack<string> operator_Stack)
+        {             
             //calc every two value between oprator
             while (operator_Stack.Count > 0)
             {
