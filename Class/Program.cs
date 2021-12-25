@@ -22,7 +22,5 @@ namespace SmartClac
             }
             while (Console.ReadLine().ToLower() != "n");
         }
-
-
     }
 }

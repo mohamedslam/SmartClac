@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SmartClac.Class;
 using Xunit;
 
 namespace SmartClac.Test
@@ -8,7 +9,7 @@ namespace SmartClac.Test
     [TestClass] 
     public class CalculatorClass:BaseTest
     {
-        public CalculatorClass():base(new Class.ClsClaculation()) {       }
+        public CalculatorClass():base(new ClsClaculation()) {       }
 
         [TestMethod("TestAllexpretion")]
         [Theory]
@@ -19,9 +20,6 @@ namespace SmartClac.Test
         [InlineData("5%3", 2)]
         [InlineData("5+3-2*4/5%3", 3)]
         [InlineData("(5+3)-2*(4/5%3)", 2)]
-        public  void TestCalc(string expretion,double result)
-        {
-            Assert.Equals(_Icalculation.Claculate(expretion), result);
-        }
+        public void TestCalc(string expretion, double result) => Assert.AreEqual(_Icalculation.Claculate(expretion), result);
     }
 }

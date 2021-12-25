@@ -6,8 +6,7 @@ using System.Text;
 namespace SmartClac.Class
 {
     public class ClsClaculation: CalculationMainOperation,ICalculation
-    {    
-        
+    {  
         public  double Claculate(string expression)
         {
             if (expression.Trim().Length < 3)
@@ -94,7 +93,5 @@ namespace SmartClac.Class
 
             return tokens;
         }
-
-   
     }
 }

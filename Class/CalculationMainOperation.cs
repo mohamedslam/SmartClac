@@ -55,7 +55,6 @@ namespace SmartClac.Class
             }
             return subFormula.ToString();
         }
-
         protected bool CheckOperator(char opr)
         {
             foreach(var item in _MathOperators)
