@@ -4,21 +4,25 @@ using System.Text;
 
 namespace SmartClac.Class
 {
-   public abstract class CalculationMainOperation
+    public abstract class CalculationMainOperation
     {
-        protected  string[] _MathOperators = { "-", "+", "/", "*", "^","%" };
+        protected readonly string[] _MathOperators = { "-", "+", "/","%","*", "^", "(",")" };
 
-        protected  Func<double, double, double>[]
+        protected Func<double, double, double>[]
             MyAllowanceOperation =
         {
             (a1, a2) => a1 - a2,
             (a1, a2) => a1 + a2,
             (a1, a2) => a1 / a2,
-            (a1, a2) => a1 * a2,            
-            (a1, a2) => Math.Pow(a1, a2),
             (a1, a2) => a1 % a2,
+            (a1, a2) => a1 * a2,
+            (a1, a2) => Math.Pow(a1, a2),
+            
         };
-
+        protected int GetIndex(string[] arr, string elemnt)
+        {
+            return Array.IndexOf(arr, elemnt);
+        }
         protected string GetSeperatedSubExpression(List<string> tokens, ref int index)
         {
             StringBuilder subFormula = new StringBuilder();
@@ -52,31 +56,13 @@ namespace SmartClac.Class
             return subFormula.ToString();
         }
 
-        protected List<string> getTokens(string expression)
+        protected bool CheckOperator(char opr)
         {
-            string operators = "()^*/+-%";
-            List<string> tokens = new List<string>();
-            StringBuilder sb = new StringBuilder();
-
-            foreach (char c in expression.Trim())
-            {
-                if (operators.IndexOf(c) >= 0)
-                {
-                    if ((sb.Length > 0))
-                    {
-                        tokens.Add(sb.ToString());
-                        sb.Length = 0;
-                    }
-                    tokens.Add(c.ToString());
-                }
-                else
-                    sb.Append(c);
-            }
-
-            if ((sb.Length > 0))
-                tokens.Add(sb.ToString());
-
-            return tokens;
+            foreach(var item in _MathOperators)
+                if (item == opr.ToString())
+                    return true;
+            return false;
         }
+
     }
 }
