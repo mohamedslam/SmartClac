@@ -18,9 +18,7 @@ namespace SmartClac.Class
             (a1, a2) => Math.Pow(a1, a2),
             (a1, a2) => a1 % a2,
         };
-            string operators = "()^*/+-%";
-        List<string> tokens;
-        StringBuilder sb;
+
         protected string GetSeperatedSubExpression(List<string> tokens, ref int index)
         {
             StringBuilder subFormula = new StringBuilder();
@@ -56,8 +54,9 @@ namespace SmartClac.Class
 
         protected List<string> getTokens(string expression)
         {
-             tokens = new List<string>();
-             sb = new StringBuilder();
+            string operators = "()^*/+-%";
+            List<string> tokens = new List<string>();
+            StringBuilder sb = new StringBuilder();
 
             foreach (char c in expression.Trim())
             {
