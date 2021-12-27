@@ -7,9 +7,9 @@ using Xunit;
 namespace SmartClac.Test
 {
     [TestClass] 
-    public class CalculatorClass:BaseTest
+    public class CalculatorTest:BaseTest
     {
-        public CalculatorClass():base(new ClsClaculation()) {       }
+        public CalculatorTest():base(new ClsClaculation()) {       }
 
         [TestMethod("TestAllexpretion")]
         [Theory]
